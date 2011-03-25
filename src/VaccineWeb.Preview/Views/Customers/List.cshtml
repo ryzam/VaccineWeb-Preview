@@ -1,0 +1,44 @@
+﻿@model IEnumerable<VaccineWeb.Preview.Models.Reports.Customers.CustomerDetailReport>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Register")
+</p>
+<table>
+    <tr>
+        <th></th>
+       
+        <th>
+            Name
+        </th>
+        <th>
+            CashBalance
+        </th>
+       
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AggregateRootId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AggregateRootId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AggregateRootId })
+        </td>
+       
+        <td>
+            @item.name
+        </td>
+        <td>
+            @String.Format("{0:F}", item.cashBalance)
+        </td>
+       
+    </tr>
+}
+
+</table>
+
