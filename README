@@ -1,1 +1,8 @@
-An example how to use vaccine framework (DCI-CQRS-Event Sourcing)
+An example how to use vaccine framework (DCI-CQRS-Event Sourcing).
+
+Prerequisite
+
+SQL 2008 Express
+Visual Web 2010 Express
+ASP.Net MVC3
+.Net Framework 4.0
