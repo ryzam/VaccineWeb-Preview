@@ -39,4 +39,3 @@ C:\Users\user\VaccineWeb-Preview\src\VaccineWeb.Preview\bin\Autofac.xml
 C:\Users\user\VaccineWeb-Preview\src\VaccineWeb.Preview\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\user\VaccineWeb-Preview\src\VaccineWeb.Preview\obj\Debug\VaccineWeb.Preview.dll
 C:\Users\user\VaccineWeb-Preview\src\VaccineWeb.Preview\obj\Debug\VaccineWeb.Preview.pdb
-C:\Users\user\VaccineWeb-Preview\src\VaccineWeb.Preview\bin\Vaccine.Core.pdb

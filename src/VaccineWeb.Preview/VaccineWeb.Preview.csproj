@@ -77,7 +77,7 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="Vaccine.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Documents\Visual Studio 2010\Projects\AppCqrs\AppCqrs\bin\Debug\Vaccine.Core.dll</HintPath>
+      <HintPath>..\..\libs\Vaccine.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
