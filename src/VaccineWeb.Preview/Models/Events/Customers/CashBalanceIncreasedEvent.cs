@@ -6,7 +6,7 @@ using Vaccine.Core.Events;
 
 namespace VaccineWeb.Preview.Models.Events.Customers
 {
-    public class CashBalanceDecreasedEvent : AggregateUpdateEvent
+    public class CashBalanceIncreasedEvent : AggregateUpdateEvent
     {
         public decimal CashBalance { get; set; }
     }

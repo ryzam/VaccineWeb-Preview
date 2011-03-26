@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Web Developer Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VaccineWeb.Preview", "VaccineWeb.Preview\VaccineWeb.Preview.csproj", "{2EAA9651-327C-4430-94CC-642FC5662DCC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vaccine.Core", "..\..\Documents\Visual Studio 2010\Projects\AppCqrs\AppCqrs\Vaccine.Core.csproj", "{7258D9C4-3313-4309-A526-EE62BC43C13E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{2EAA9651-327C-4430-94CC-642FC5662DCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EAA9651-327C-4430-94CC-642FC5662DCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EAA9651-327C-4430-94CC-642FC5662DCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7258D9C4-3313-4309-A526-EE62BC43C13E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7258D9C4-3313-4309-A526-EE62BC43C13E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7258D9C4-3313-4309-A526-EE62BC43C13E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7258D9C4-3313-4309-A526-EE62BC43C13E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

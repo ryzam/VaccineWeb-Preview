@@ -6,6 +6,7 @@ using Vaccine.Core;
 using VaccineWeb.Preview.Models.Events;
 using VaccineWeb.Preview.Models.Events.Customers;
 using VaccineWeb.Preview.Models.Reports.Customers;
+using Vaccine.Core.Events;
 
 namespace VaccineWeb.Preview.Models.Domains.Customers
 {
@@ -15,6 +16,7 @@ namespace VaccineWeb.Preview.Models.Domains.Customers
         {
             RegisterEvent<NewCustomerCreatedEvent>(OnNewCustomerCreated);
             RegisterEvent<CashBalanceDecreasedEvent>(OnCashBalanceDecreased);
+            RegisterEvent<CashBalanceIncreasedEvent>(OnCashBalanceIncreased);
         }
             
 
@@ -26,11 +28,13 @@ namespace VaccineWeb.Preview.Models.Domains.Customers
         {
             var e = new NewCustomerCreatedEvent(name, cashBalance);
             Apply<NewCustomerCreatedEvent>(e)
-                .SaveReport<CustomerDetailReport>(x=>
-                    {
-                        x.cashBalance = cashBalance;
-                        x.name = name;
-                    });
+                .Save<CustomerDetailReport>(x =>
+                {
+                    x.AggregateRootId = e.AggregateRootId;
+                    x.name = e.Name;
+                    x.cashBalance = e.CashBalance;
+                }
+            );
         }
 
         private void OnNewCustomerCreated(NewCustomerCreatedEvent e)
@@ -55,7 +59,7 @@ namespace VaccineWeb.Preview.Models.Domains.Customers
                 cashBalance -= totalAmount;
                 var e = new CashBalanceDecreasedEvent { CashBalance = cashBalance };
                 Apply<CashBalanceDecreasedEvent>(e)
-                    .UpdateReport<CustomerDetailReport>(r => r.cashBalance = cashBalance);
+                    .Update<CustomerDetailReport>(r => r.cashBalance = cashBalance);
             }
             else
             {
@@ -66,6 +70,19 @@ namespace VaccineWeb.Preview.Models.Domains.Customers
         private void OnCashBalanceDecreased(CashBalanceDecreasedEvent e)
         {
             this.cashBalance = e.CashBalance;
+        }
+
+        public void IncreaseCashBalance(decimal totalAmount)
+        {
+            cashBalance += totalAmount;
+            var e = new CashBalanceIncreasedEvent { CashBalance = cashBalance};
+            Apply<CashBalanceIncreasedEvent>(e)
+                .Update<CustomerDetailReport>(x => x.cashBalance = cashBalance);
+        }
+
+        private void OnCashBalanceIncreased(CashBalanceIncreasedEvent e)
+        {
+            cashBalance = e.CashBalance;
         }
     }
 }

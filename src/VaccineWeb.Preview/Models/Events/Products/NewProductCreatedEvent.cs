@@ -6,17 +6,11 @@ using Vaccine.Core.Events;
 
 namespace VaccineWeb.Preview.Models.Events.Products
 {
-    public class NewProductCreatedEvent : CreateEvent
+    public class NewProductCreatedEvent : AggregateCreateEvent
     {
        
-        public NewProductCreatedEvent()
+        public NewProductCreatedEvent(string productName, decimal price, int stock):base()
         {
-
-        }
-
-        public NewProductCreatedEvent(string productName, decimal price, int stock)
-        {
-            // TODO: Complete member initialization
             this.ProductName = productName;
             this.Price = price;
             this.Stock = stock;

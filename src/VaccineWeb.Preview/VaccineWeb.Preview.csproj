@@ -77,7 +77,7 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="Vaccine.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\libs\Vaccine.Core.dll</HintPath>
+      <HintPath>..\..\..\Documents\Visual Studio 2010\Projects\AppCqrs\AppCqrs\bin\Debug\Vaccine.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +87,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Commands\Orders\ChangeProductQuantityInOrderItemCommand.cs" />
     <Compile Include="Models\Commands\Orders\MakeNewOrderCommand.cs" />
     <Compile Include="Models\Commands\Products\CreateNewProductCommand.cs" />
     <Compile Include="Models\Commands\Customers\CreateNewCustomerCommand.cs" />
@@ -98,15 +99,19 @@
     <Compile Include="Models\EventHandlers\Products\NewProductCreatedEventHandler.cs" />
     <Compile Include="Models\EventHandlers\Products\StockBalanceDecreasedEventHandler.cs" />
     <Compile Include="Models\Events\Customers\CashBalanceDecreasedEvent.cs" />
+    <Compile Include="Models\Events\Customers\CashBalanceIncreasedEvent.cs" />
     <Compile Include="Models\Events\Orders\NewOrderCreatedEvent.cs" />
     <Compile Include="Models\Events\Customers\NewCustomerCreatedEvent.cs" />
     <Compile Include="Models\Events\Orders\OrderLineAddedEvent.cs" />
+    <Compile Include="Models\Events\Orders\ProductQuantityInOrderItemChangedEvent.cs" />
     <Compile Include="Models\Events\Products\NewProductCreatedEvent.cs" />
     <Compile Include="Models\Events\Products\StockBalanceDecreasedEvent.cs" />
+    <Compile Include="Models\Events\Products\StockBalanceIncreasedEvent.cs" />
     <Compile Include="Models\Reports\Customers\CustomerDetailReport.cs" />
     <Compile Include="Models\Reports\Orders\CustomerOrdersDetailReport.cs" />
     <Compile Include="Models\Reports\Products\ProductDetailReport.cs" />
     <Compile Include="Models\RoleHandlers\Customers\CreateNewCustomerRole.cs" />
+    <Compile Include="Models\RoleHandlers\Orders\ChangeProductQuantityInOrderItemRole.cs" />
     <Compile Include="Models\RoleHandlers\Orders\MakeNewOrderRole.cs" />
     <Compile Include="Models\RoleHandlers\Products\CreateNewProductRole.cs" />
     <Compile Include="Models\ViewModels\CustomerOrderViewModel.cs" />

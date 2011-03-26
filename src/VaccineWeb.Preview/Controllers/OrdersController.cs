@@ -109,5 +109,26 @@ namespace VaccineWeb.Preview.Controllers
             var reports = ReadStorage.GetAll<CustomerOrdersDetailReport>();
             return View(reports);
         }
+
+    
+        public ActionResult Edit(Guid id, Guid rowId, Guid customerId, Guid productId)
+        {
+            try
+            {
+                using (var s = UnitOfWork)
+                {
+                    var cmd = new ChangeProductQuantityInOrderItemCommand { AggregateRootId = id, RowId = rowId, CustomerId = customerId, ProductId = productId, Quantity = 5 };
+                    var ctx = new ContextHandler<Order, ChangeProductQuantityInOrderItemRole>(repo);
+                    ctx.Bind(cmd)
+                       .Execute();
+                    s.Commit();
+                }
+
+            }
+            catch (Exception err)
+            {
+            }
+            return null;
+        }
     }
 }

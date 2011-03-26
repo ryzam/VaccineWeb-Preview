@@ -8,6 +8,7 @@ namespace VaccineWeb.Preview.Models.Reports.Orders
 {
     public class CustomerOrdersDetailReport : Report
     {
+
         public string CustomerName { get; set; }
 
         public Guid CustomerId { get; set; }

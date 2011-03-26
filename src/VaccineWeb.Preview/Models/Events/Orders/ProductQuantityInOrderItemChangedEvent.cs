@@ -6,10 +6,10 @@ using Vaccine.Core.Events;
 
 namespace VaccineWeb.Preview.Models.Events.Orders
 {
-    public class NewOrderCreatedEvent : AggregateCreateEvent
+    public class ProductQuantityInOrderItemChangedEvent : UpdateEvent
     {
-        public Guid CustomerAggregateRootId { get; set; }
+        public int Quantity { get; set; }
 
-        public DateTime? OrderDate { get; set; }
+        public decimal TotalAmount { get; set; }
     }
 }

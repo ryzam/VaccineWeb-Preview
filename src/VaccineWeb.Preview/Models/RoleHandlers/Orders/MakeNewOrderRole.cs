@@ -20,7 +20,6 @@ namespace VaccineWeb.Preview.Models.RoleHandlers.Orders
 
             var customer = repository.GetById<Customer>(c.CustomerId);
 
-           
             Self.CreateNewOrder(customer.AggregateRootId);
 
             foreach (Guid item in c.Quantities.Keys)

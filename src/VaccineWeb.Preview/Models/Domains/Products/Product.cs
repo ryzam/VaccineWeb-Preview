@@ -14,6 +14,7 @@ namespace VaccineWeb.Preview.Models.Domains.Products
         {
             RegisterEvent<NewProductCreatedEvent>(OnNewProductCreated);
             RegisterEvent<StockBalanceDecreasedEvent>(OnStockBalanceDecreased);
+            RegisterEvent<StockBalanceIncreasedEvent>(OnStockBalanceIncreased);
         }
 
         public string productName { get; private set; }
@@ -24,8 +25,9 @@ namespace VaccineWeb.Preview.Models.Domains.Products
         {
             var e = new NewProductCreatedEvent(productName, price, stock);
             Apply<NewProductCreatedEvent>(e)
-                .SaveReport<ProductDetailReport>(x =>
+                .Save<ProductDetailReport>(x =>
                     {
+                        x.AggregateRootId = AggregateRootId;
                         x.ProductName = productName;
                         x.Price = price;
                         x.Stock = stock;
@@ -62,12 +64,25 @@ namespace VaccineWeb.Preview.Models.Domains.Products
 
             var e = new StockBalanceDecreasedEvent { Stock = stock };
             Apply<StockBalanceDecreasedEvent>(e)
-                .UpdateReport<ProductDetailReport>(x => x.Stock = stock);
+                .Update<ProductDetailReport>(x => x.Stock = stock);
         }
 
         private void OnStockBalanceDecreased(StockBalanceDecreasedEvent e)
         {
-                this.stock = e.Stock;
+            this.stock = e.Stock;
+        }
+
+        public void IncreaseStockBalance(int quantity)
+        {
+            stock += quantity;
+            var e = new StockBalanceIncreasedEvent{ Stock = stock};
+            Apply<StockBalanceIncreasedEvent>(e)
+                .Update<ProductDetailReport>(x => x.Stock = stock);
+        }
+
+        private void OnStockBalanceIncreased(StockBalanceIncreasedEvent e)
+        {
+            this.stock = e.Stock;
         }
     }
 }
